@@ -19,7 +19,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.staticphotogallery.ui.theme.StaticPhotoGalleryTheme
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +28,6 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
-                    // Replace the Greeting call with PhotoGallery
                     PhotoGallery(
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -39,14 +37,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// 1. Create a new Composable to show a single photo with a caption.
 @Composable
 fun PhotoItem(
     imageResId: Int,
     caption: String,
     modifier: Modifier = Modifier
 ) {
-    // Use a Column to place the image and the caption
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -67,17 +63,14 @@ fun PhotoItem(
     }
 }
 
-// 2. Create a grid-like layout using Rows & Columns to display 6 photos.
 @Composable
 fun PhotoGallery(modifier: Modifier = Modifier) {
-    // We'll arrange our images in a Column of two Rows.
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // First Row
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
@@ -88,10 +81,7 @@ fun PhotoGallery(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.width(16.dp))
             PhotoItem(imageResId = R.drawable.image3, caption = "Photo 3")
         }
-
         Spacer(modifier = Modifier.height(24.dp))
-
-        // Second Row
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
